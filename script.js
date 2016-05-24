@@ -1,6 +1,9 @@
+// The timer updates only the required fields, and does not update all the components of the timer, at the interval of one second.
 
-var timer = function() {
+
+var timer = function() {  // Main timer function
 	
+	// Checks for the special cases in the timer
 	    if (document.getElementById('seconds').innerHTML === '0') {
 		if( Number(document.getElementById('minutes').innerHTML) > 0) {   
 		    // Decrement number of minutes by 1
@@ -25,13 +28,13 @@ var timer = function() {
 		}		
 		
 		// Countdown over
-		console.log("Timer Over !!")  
-		document.getElementById('whole').style.visibility = 'hidden';
-		document.body.style.backgroundImage = "url('outerspace.jpg')";
-		clearInterval(myTimer);    // Stop the 'timer'
-	    setTimeout(message, 2000);	 // Display a message
+		console.log("Timer Over !!")  // Print a message to the console
+		document.getElementById('whole').style.visibility = 'hidden'; // Hide the timer div 
+		document.body.style.backgroundImage = "url('outerspace.jpg')"; // Change the background image
+		clearInterval(myTimer);      // Stop the 'timer'
+	    setTimeout(message, 2000);	 // Display a message after 2 seconds of background change
 	}
-	else
+	else  // If all the above conditions fail, then decrement timer by 1 second
 		document.getElementById('seconds').innerHTML -= 1;    // Decrement seconds by 1
 	
 };
